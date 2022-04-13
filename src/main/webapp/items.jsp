@@ -9,10 +9,12 @@
 		 itemObj.connect();//For testing the connect method
 
 		
-		 session.setAttribute("itemCode", request.getParameter("itemCode")); 
-		 session.setAttribute("itemName", request.getParameter("itemName")); 
-		 session.setAttribute("itemPrice", request.getParameter("itemPrice")); 
-		 session.setAttribute("itemDesc", request.getParameter("itemDesc"));
+		 String stsMsg = itemObj.insertItem(request.getParameter("itemCode"), 
+				 request.getParameter("itemName"), 
+				 request.getParameter("itemPrice"), 
+				 request.getParameter("itemDesc"));
+		 
+				 session.setAttribute("statusMsg", stsMsg); 
 	 
 	} 
 %>
@@ -32,8 +34,12 @@
 	Item Description:<input name="itemDesc" type="text"><br/>
 	<input name="btnSubmit" type="submit" value="Save"><br/>
 </form>
+<% 
+	out.print(session.getAttribute("statusMsg")); 
+%>
+
 <br>
- <table border="1">
+ <!--  <table border="1">
 	<tr>
 		<th>Item Code</th><th>Item Name</th><th>Item Price</th><th>Item Description</th><th>Update</th><th>Remove</th>
 	</tr>
@@ -46,6 +52,6 @@
 		<td><input name="btnRemove" type="button" value="Remove"></td>
 	</tr>
 
-</table> 
+</table> -->
 </body>
 </html>
