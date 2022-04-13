@@ -39,19 +39,9 @@
 %>
 
 <br>
- <!--  <table border="1">
-	<tr>
-		<th>Item Code</th><th>Item Name</th><th>Item Price</th><th>Item Description</th><th>Update</th><th>Remove</th>
-	</tr>
-	<tr>
-		<td><%out.print(session.getAttribute("itemCode")); %></td>
-		<td><%out.print(session.getAttribute("itemName")); %></td>
-		<td><%out.print(session.getAttribute("itemPrice")); %></td>
-		<td><%out.print(session.getAttribute("itemDesc")); %></td>
-		<td><input name="btnUpdate" type="button" value="Update"></td>
-		<td><input name="btnRemove" type="button" value="Remove"></td>
-	</tr>
-
-</table> -->
+<%
+ Item itemObj = new Item(); 
+ out.print(itemObj.readItems()); 
+%>
 </body>
 </html>
