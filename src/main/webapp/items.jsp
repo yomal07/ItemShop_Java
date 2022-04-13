@@ -1,13 +1,18 @@
+<%@page import="com.Item" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
 <% 
 	if (request.getParameter("itemCode") != null) 
 	{ 
-	 session.setAttribute("itemCode", request.getParameter("itemCode")); 
-	 session.setAttribute("itemName", request.getParameter("itemName")); 
-	 session.setAttribute("itemPrice", request.getParameter("itemPrice")); 
-	 session.setAttribute("itemDesc", request.getParameter("itemDesc"));
+		 Item itemObj = new Item(); 
+		 itemObj.connect();//For testing the connect method
+
+		
+		 session.setAttribute("itemCode", request.getParameter("itemCode")); 
+		 session.setAttribute("itemName", request.getParameter("itemName")); 
+		 session.setAttribute("itemPrice", request.getParameter("itemPrice")); 
+		 session.setAttribute("itemDesc", request.getParameter("itemDesc"));
 	 
 	} 
 %>
@@ -28,7 +33,7 @@
 	<input name="btnSubmit" type="submit" value="Save"><br/>
 </form>
 <br>
-<table border="1">
+ <table border="1">
 	<tr>
 		<th>Item Code</th><th>Item Name</th><th>Item Price</th><th>Item Description</th><th>Update</th><th>Remove</th>
 	</tr>
@@ -41,6 +46,6 @@
 		<td><input name="btnRemove" type="button" value="Remove"></td>
 	</tr>
 
-</table>
+</table> 
 </body>
 </html>
